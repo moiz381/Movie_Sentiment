@@ -10,7 +10,12 @@ vectorizer = joblib.load('vectorizer.pkl')
 def preprocess(text):
     text = text.lower()
     text = text.translate(str.maketrans('', '', string.punctuation))
-    stop_words = set([...])  # Same stop word list
+    stop_words = set([
+    'the', 'a', 'an', 'in', 'on', 'at', 'of', 'for', 'and', 'but', 'or',
+    'this', 'that', 'is', 'was', 'are', 'were', 'be', 'been', 'to', 'with',
+    'as', 'by', 'it', 'its', 'from'
+])
+  # Same stop word list
     words = text.split()
     filtered = [word for word in words if word not in stop_words]
     return ' '.join(filtered)
